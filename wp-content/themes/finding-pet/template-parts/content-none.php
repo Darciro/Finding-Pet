@@ -8,44 +8,52 @@
  */
 
 ?>
+<section class="section section-hero bg-secondary page-header" style="padding: 100px 0; background: #ea9a96 !important">
+    <div class="container text-center">
+        <h1 class="text-white display-3"><?php the_title(); ?></h1>
+        <h2 class="display-5 font-weight-normal text-white">Subtitle here</h2>
+    </div>
+</section>
 
-<section class="no-results not-found">
-	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'finding-pet' ); ?></h1>
-	</header><!-- .page-header -->
+<div class="container">
+    <section class="no-results not-found">
+        <header class="page-header">
+            <h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'finding-pet' ); ?></h1>
+        </header><!-- .page-header -->
 
-	<div class="page-content">
-		<?php
-		if ( is_home() && current_user_can( 'publish_posts' ) ) :
+        <div class="page-content">
+            <?php
+            if ( is_home() && current_user_can( 'publish_posts' ) ) :
 
-			printf(
-				'<p>' . wp_kses(
-					/* translators: 1: link to WP admin new post page. */
-					__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'finding-pet' ),
-					array(
-						'a' => array(
-							'href' => array(),
-						),
-					)
-				) . '</p>',
-				esc_url( admin_url( 'post-new.php' ) )
-			);
+                printf(
+                    '<p>' . wp_kses(
+                    /* translators: 1: link to WP admin new post page. */
+                        __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'finding-pet' ),
+                        array(
+                            'a' => array(
+                                'href' => array(),
+                            ),
+                        )
+                    ) . '</p>',
+                    esc_url( admin_url( 'post-new.php' ) )
+                );
 
-		elseif ( is_search() ) :
-			?>
+            elseif ( is_search() ) :
+                ?>
 
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'finding-pet' ); ?></p>
-			<?php
-			get_search_form();
+                <p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'finding-pet' ); ?></p>
+                <?php
+                get_search_form();
 
-		else :
-			?>
+            else :
+                ?>
 
-			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'finding-pet' ); ?></p>
-			<?php
-			get_search_form();
+                <p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'finding-pet' ); ?></p>
+                <?php
+                get_search_form();
 
-		endif;
-		?>
-	</div><!-- .page-content -->
-</section><!-- .no-results -->
+            endif;
+            ?>
+        </div><!-- .page-content -->
+    </section><!-- .no-results -->
+</div>

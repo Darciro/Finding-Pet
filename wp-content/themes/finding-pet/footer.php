@@ -11,24 +11,39 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'finding-pet' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'finding-pet' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'finding-pet' ), 'finding-pet', '<a href="https://github.com/Darciro/">Ricardo Carvalho</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+<footer id="footer" class="site-footer">
+    <div class="container">
+        <div class="row row-grid align-items-center mb-5">
+            <div class="col-lg-6"><h3 class="text-primary font-weight-light mb-2">Obrigado pela sua contribuição</h3><h4 class="mb-0 font-weight-light">Siga-nos em outras plataformas e esteja em contato com os pets que precisam da sua ajuda!</h4></div>
+            <div class="col-lg-6 text-right btn-wrapper">
+                <a target="_blank" href="#" rel="nofollow" class="btn btn-icon-only btn-twitter rounded-circle" data-toggle="tooltip" data-original-title="Follow us"><span class="btn-inner--icon"><i class="fab fa-twitter"></i></span></a>
+                <a target="_blank" href="#" rel="nofollow" class="btn-icon-only rounded-circle btn btn-facebook" data-toggle="tooltip" data-original-title="Like us"><span class="btn-inner--icon"><i class="fab fa-facebook"></i></span></a>
+                <a target="_blank" href="#" rel="nofollow" class="btn btn-icon-only btn-dribbble rounded-circle" data-toggle="tooltip" data-original-title="Follow us"><span class="btn-inner--icon"><i class="fab fa-instagram"></i></span></a>
+                <a target="_blank" href="#" rel="nofollow" class="btn btn-icon-only btn-github rounded-circle" data-toggle="tooltip" data-original-title="Star on Github"><span class="btn-inner--icon"><i class="fab fa-pinterest-p"></i></span></a>
+            </div>
+        </div>
+        <hr>
+        <div class="row align-items-center justify-content-md-between">
+            <div class="col-md-6">
+                <div class="copyright">© 2020 <a href="" target="_blank">Galdar Tecnologia</a>.</div>
+            </div>
+            <div class="col-md-6">
+                <ul class="nav nav-footer justify-content-end">
+                    <li class="nav-item"><a href="" class="nav-link" target="_blank">Rick Manu</a></li>
+                    <li class="nav-item"><a href="" class="nav-link" target="_blank">Licença de uso</a></li>
+                    <li class="nav-item"><a href="https://github.com/Darciro/helpet" class="nav-link" target="_blank">Github</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
 <?php wp_footer(); ?>
 
 </body>
 </html>
+

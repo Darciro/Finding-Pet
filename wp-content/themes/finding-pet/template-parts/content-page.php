@@ -9,7 +9,15 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<section class="section section-hero bg-secondary page-header" style="padding: 100px 0; background: #ea9a96 !important">
+    <div class="container text-center">
+        <h1 class="text-white display-3"><?php the_title(); ?></h1>
+        <h2 class="display-5 font-weight-normal text-white">A little about our projects and our love for pets!</h2>
+    </div>
+</section>
+
+<div class="container">
+    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
@@ -52,3 +60,4 @@
 		</footer><!-- .entry-footer -->
 	<?php endif; ?>
 </article><!-- #post-<?php the_ID(); ?> -->
+</div>

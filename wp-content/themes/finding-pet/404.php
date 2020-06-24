@@ -10,9 +10,17 @@
 get_header();
 ?>
 
+    <section class="section section-hero bg-secondary page-header" style="padding: 100px 0; background: #ea9a96 !important">
+        <div class="container text-center">
+            <h1 class="text-white display-3">404</h1>
+            <h2 class="display-5 font-weight-normal text-white">Ops</h2>
+        </div>
+    </section>
+
 	<main id="primary" class="site-main">
 
-		<section class="error-404 not-found">
+        <div class="container">
+		    <section class="error-404 not-found">
 			<header class="page-header">
 				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'finding-pet' ); ?></h1>
 			</header><!-- .page-header -->
@@ -53,6 +61,7 @@ get_header();
 
 			</div><!-- .page-content -->
 		</section><!-- .error-404 -->
+        </div>
 
 	</main><!-- #main -->
 
