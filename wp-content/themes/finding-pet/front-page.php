@@ -153,9 +153,18 @@
                     </div>
                     <div class="col-12 order-1 col-md-12 order-md-1 col-lg-2">
                         <div class="main-content-nav nav flex-column nav-pills sticky-top" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Atualizações</a>
-                            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Próximos</a>
-                            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Seguindo</a>
+                            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                                <i class="d-block d-lg-none fas fa-exclamation-triangle"></i>
+                                Atualizações
+                            </a>
+                            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                                <i class="d-block d-lg-none fas fa-map-marker-alt"></i>
+                                Próximos
+                            </a>
+                            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+                                <i class="d-block d-lg-none fas fa-star"></i>
+                                Seguindo
+                            </a>
                         </div>
                     </div>
                 </div>

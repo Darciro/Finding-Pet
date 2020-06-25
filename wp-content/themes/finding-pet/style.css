@@ -1070,6 +1070,8 @@ textarea {
 	position: relative;
 	min-height: 155px;
 	width: 100%;
+	max-width: 270px;
+	margin: auto;
 }
 
 .pet-card .card-header .header-image .pet,
@@ -1145,4 +1147,83 @@ textarea {
 #footer {
 	background: #e5e5e5;
 	padding: 1.5rem 0;
+}
+
+#disqus_thread {
+	max-width: 1140px;
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 100px;
+}
+
+/* Medium */
+@media only screen and (max-width: 1200px) {
+	body {
+		/*background-color: lightpink !important;*/
+	}
+
+	#disqus_thread {
+		max-width: 960px;
+	}
+}
+
+/* Medium */
+@media only screen and (max-width: 992px) {
+	body {
+		/*background-color: lightblue !important;*/
+	}
+
+	.main-content-nav {
+		margin-bottom: 30px;
+		border-left: none;
+		border-bottom: 1px solid #eee;
+		display: block;
+		padding-bottom: 15px;
+	}
+
+	.main-content-nav .nav-link {
+		display: inline-block;
+		width: 32.33%;
+		text-align: center;
+		padding: 15px;
+	}
+
+	.main-content-nav .nav-link.active {
+		color: #fff !important;
+		background-color: #17a2b8 !important;
+	}
+
+	.main-content-nav .nav-link i {
+		font-size: 24px;
+		margin-bottom: 15px;
+	}
+
+	#disqus_thread {
+		max-width: 720px;
+	}
+
+	.pet-card .card-footer {
+		padding: 45px 30px;
+	}
+}
+
+/* Small > 576 */
+@media only screen and (max-width: 768px) {
+	body {
+		/*background-color: orange !important;*/
+	}
+
+	#disqus_thread {
+		max-width: 540px;
+	}
+}
+
+/* Extra small < 576 */
+@media only screen and (max-width: 576px) {
+	body {
+		/*background-color: red !important;*/
+	}
 }

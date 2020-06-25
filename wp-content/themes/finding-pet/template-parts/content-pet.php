@@ -11,7 +11,7 @@
     <div class="pet-card card text-center shadow" style="margin-bottom: 100px;">
         <div class="card-header container">
             <div class="row">
-                <div class="col">
+                <div class="col d-none d-lg-block">
                     <ul>
                         <li>
                             <b>22</b>
@@ -42,7 +42,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col text-right">
+                <div class="col d-none d-lg-block text-right">
                     <button type="button" class="btn btn-info btn-sm shadow-sm">
                         <i class="fas fa-star" style="margin-right: 5px; color: rgb(255, 255, 255);"></i>Seguir
                     </button>
