@@ -23,6 +23,8 @@
     <?php wp_head(); ?>
 
     <script src="https://kit.fontawesome.com/e4c6fe5997.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -31,67 +33,95 @@
 <header id="masthead" class="site-header">
 
     <nav class="navbar navbar-expand-md bg-fp-primary" role="navigation">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
         </button>
-        <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a>
-        <?php
-        wp_nav_menu(array(
-            'theme_location' => 'main-menu',
-            'depth' => 2,
-            'container' => 'div',
-            'container_class' => 'collapse navbar-collapse',
-            'container_id' => 'bs-example-navbar-collapse-1',
-            'menu_class' => 'navbar-nav align-items-lg-center',
-            'fallback_cb' => 'WP_Bootstrap_Navwalker::fallback',
-            'walker' => new WP_Bootstrap_Navwalker(),
-        ));
-        ?>
+        <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+            <i class="fas fa-paw mr-2"></i><?php bloginfo('name'); ?>
+        </a>
 
-        <ul class="navbar-nav align-items-lg-center ml-lg-auto">
-            <li class="nav-item">
-                <a class="nav-link nav-link-icon" href="https://www.facebook.com/" target="_blank" data-toggle="tooltip" title="Like us on Facebook">
-                    <i class="fab fa-facebook-square"></i>
-                    <span class="nav-link-inner--text d-lg-none">Facebook</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link nav-link-icon" href="https://www.instagram.com/" target="_blank" data-toggle="tooltip" title="Follow us on Instagram">
-                    <i class="fab fa-instagram"></i>
-                    <span class="nav-link-inner--text d-lg-none">Instagram</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link nav-link-icon" href="https://wa.me/000123456789" target="_blank" data-toggle="tooltip" title="Follow us on Twitter">
-                    <i class="fab fa-whatsapp"></i>
-                    <span class="nav-link-inner--text d-lg-none">WhatsApp</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link nav-link-icon" href="https://github.com/creativetimofficial/argon-design-system" target="_blank" data-toggle="tooltip" title="Star us on Github">
-                    <i class="fas fa-envelope"></i>
-                    <span class="nav-link-inner--text d-lg-none">Email</span>
-                </a>
-            </li>
+        <div class="collapse navbar-collapse" id="nav-content">
+            <?php
+            wp_nav_menu(array(
+                'theme_location' => 'main-menu',
+                'depth' => 2,
+                'container' => 'div',
+                'menu_class' => 'navbar-nav align-items-lg-center',
+                'fallback_cb' => 'WP_Bootstrap_Navwalker::fallback',
+                'walker' => new WP_Bootstrap_Navwalker(),
+            ));
+            ?>
 
-            <li class="nav-item d-block d-lg-block">
-                <a class="btn btn-light btn-icon" href="/register">
-                        <span class="btn-inner--icon">
-                            <i class="fas fa-sign-in-alt" style="margin-right: 15px;"></i>
-                        </span>
-                    <span class="nav-link-inner--text">Registro</span>
-                </a>
-            </li>
-            <li class="nav-item d-block d-lg-block">
-                <a class="btn btn-light btn-icon" href="/login">
-                        <span class="btn-inner--icon">
-                            <i class="fas fa-sign-in-alt" style="margin-right: 15px;"></i>
-                        </span>
-                    <span class="nav-link-inner--text">Login</span>
-                </a>
-            </li>
-        </ul>
+            <ul class="navbar-nav align-items-lg-center ml-lg-auto mt-0 mb-0">
+                <li class="nav-item d-sm-inline-block">
+                    <a class="nav-link nav-link-icon" href="https://www.facebook.com/" target="_blank" data-toggle="tooltip" title="Like us on Facebook">
+                        <i class="fab fa-facebook-square"></i>
+                        <span class="nav-link-inner--text sr-only">Facebook</span>
+                    </a>
+                </li>
+                <li class="nav-item d-sm-inline-block">
+                    <a class="nav-link nav-link-icon" href="https://www.instagram.com/" target="_blank" data-toggle="tooltip" title="Follow us on Instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span class="nav-link-inner--text sr-only">Instagram</span>
+                    </a>
+                </li>
+                <li class="nav-item d-sm-inline-block">
+                    <a class="nav-link nav-link-icon" href="https://wa.me/000123456789" target="_blank" data-toggle="tooltip" title="Follow us on Twitter">
+                        <i class="fab fa-whatsapp"></i>
+                        <span class="nav-link-inner--text sr-only">WhatsApp</span>
+                    </a>
+                </li>
+                <li class="nav-item d-sm-inline-block">
+                    <a class="nav-link nav-link-icon" href="https://github.com/creativetimofficial/argon-design-system" target="_blank" data-toggle="tooltip" title="Star us on Github">
+                        <i class="fas fa-envelope"></i>
+                        <span class="nav-link-inner--text sr-only">Email</span>
+                    </a>
+                </li>
+
+                <?php if (is_user_logged_in()):
+                    $current_user = wp_get_current_user(); ?>
+                    <ul class="user-nav nav navbar-nav ml-5 mr-0 mt-0 mb-0 p-0">
+                        <li class="dropdown">
+                            <a href="#" class="nav-link dropdown-toggle user-avatar text-black-50" data-toggle="dropdown" aria-expanded="false">
+                                <?php echo get_avatar( $current_user->ID, 50, '', $current_user->display_name, array('class' => 'rounded-circle') ); ?>
+                                <i class="fas fa-caret-down text-white-50 ml-2"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right position-absolute">
+                                <a class="dropdown-item text-black-50" href="#">Perfil</a>
+                                <a class="dropdown-item text-black-50" href="#">Meus Pets</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-black-50" href="#">
+                                    <span class="btn-inner--icon">
+                                        <i class="fas fa-power-off" style="margin-right: 15px;"></i>
+                                    </span>Sair
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                <?php else : ?>
+                    <li class="nav-item d-none d-lg-block mr-1 ml-5">
+                        <a class="btn btn-light btn-icon text-black-50" href="/register">
+                            <!--<span class="btn-inner--icon">
+                                <i class="fas fa-sign-in-alt" style="margin-right: 15px;"></i>
+                            </span>-->
+                            <span class="nav-link-inner--text">Registro</span>
+                        </a>
+                    </li>
+                    <li class="nav-item d-none d-lg-block">
+                        <a class="btn btn-light btn-icon text-black-50" href="/login">
+                            <!--<span class="btn-inner--icon">
+                                <i class="fas fa-sign-in-alt" style="margin-right: 15px;"></i>
+                            </span>-->
+                            <span class="nav-link-inner--text">Login</span>
+                        </a>
+                    </li>
+                <?php endif; ?>
+
+            </ul>
+        </div>
+
     </nav>
 
 </header>

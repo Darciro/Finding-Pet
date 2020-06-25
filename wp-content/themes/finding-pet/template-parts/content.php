@@ -9,7 +9,7 @@
 
 ?>
 
-<section class="section section-hero bg-secondary page-header" style="padding: 100px 0; background: #ea9a96 !important">
+<section class="section section-hero bg-secondary page-header" style="padding: 100px 0; background: #ea9a96 !important; margin-bottom: 70px">
     <div class="container text-center">
         <h1 class="text-white display-3"><?php the_title(); ?></h1>
         <h2 class="display-5 font-weight-normal text-white">Subtitle here</h2>

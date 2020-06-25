@@ -6,21 +6,40 @@
             <div class="container text-center">
                 <h1 class="text-white display-3">Ajude um Pet</h1>
                 <h2 class="display-5 font-weight-normal text-white">A hora é agora!!!</h2>
-                <button type="button" class="btn btn-warning btn-icon mt-3 mb-sm-0 video-btn" data-toggle="modal" data-target="#introModal" data-src="https://www.youtube.com/embed/NGC8IS4gjpM">
+                <!--<button type="button" class="btn btn-warning btn-icon mt-3 mb-sm-0 video-btn" data-toggle="modal" data-target="#introModal" data-src="https://www.youtube.com/embed/NGC8IS4gjpM">
                     <i class="ni ni-button-play"></i> Veja como contribuir
+                </button>-->
+
+                <button type="button" class="btn btn-warning btn-icon mt-3 mb-sm-0 video-btn text-uppercase" data-toggle="modal" data-target="#introModal" data-src="https://www.youtube.com/embed/NGC8IS4gjpM">
+                    <i class="fas fa-play mr-3"></i>Veja como contribuir
                 </button>
+
+                <div class="modal intro-modal fade" id="introModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always" allow="autoplay"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section class="py-6" style="padding-top: 70px">
             <div class="container">
                 <div class="row">
-                    <div class="col-10">
+                    <div class="col-12 order-2 col-md-12 order-md-2 col-lg-10 order-lg-1">
 
                         <div class="tab-content" id="v-pills-tabContent">
                             <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                 <h2>Últimas atualizações</h2>
-                                <h3 class="mb-5"><small>Pets, Notícias, e mais</small></h3>
+                                <h3 class="mb-5"><small>Ajude-nos a encontrar esses Pets perdidos!</small></h3>
                                 <?php
                                 $args = array(
                                     // 'post_type' => array('pet', 'post'),
@@ -100,8 +119,8 @@
                                     $results_args = array();
                                 } ?>
 
-                                <h2>Pets próximos de você</h2>
-                                <h3 class="mb-5"><small>Num raio de 15Km de você (<?php echo $city . ', ' . $country; ?>)</small></h3>
+                                <h2>Casos próximos de você</h2>
+                                <h3 class="mb-5"><small>Pets perdidos num raio de 15Km de você (<?php echo $city . ', ' . $country; ?>)</small></h3>
 
                                 <?php
                                 // create a new query to display the results
@@ -119,18 +138,20 @@
                                     wp_reset_postdata();
 
                                 else :
-                                    echo 'Nada próximo de você';
+                                    echo '<p style="margin-bottom: 150px">Nenhum caso encontrado próximo de você</p>';
                                 endif;
 
                                 ?>
                             </div>
                             <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                Cillum ad ut irure tempor velit nostrud occaecat ullamco aliqua anim Lorem sint. Veniam sint duis incididunt do esse magna mollit excepteur laborum qui. Id id reprehenderit sit est eu aliqua occaecat quis et velit excepteur laborum mollit dolore eiusmod. Ipsum dolor in occaecat commodo et voluptate minim reprehenderit mollit pariatur. Deserunt non laborum enim et cillum eu deserunt excepteur ea incididunt minim occaecat.
+                                <h2>Seguindo</h2>
+                                <h3 class="mb-5"><small>Acompanhe e seja notificado sobre casos de Pets</small></h3>
+                                <p style="margin-bottom: 150px">Você ainda não está acompanhando nenhum caso</p>
                             </div>
                         </div>
 
                     </div>
-                    <div class="col-2">
+                    <div class="col-12 order-1 col-md-12 order-md-1 col-lg-2">
                         <div class="main-content-nav nav flex-column nav-pills sticky-top" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                             <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Atualizações</a>
                             <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Próximos</a>

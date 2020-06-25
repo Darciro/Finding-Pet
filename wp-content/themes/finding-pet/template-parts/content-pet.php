@@ -1,5 +1,5 @@
 <?php if (is_singular()): ?>
-    <section class="section section-hero bg-secondary page-header" style="padding: 100px 0; background: #ea9a96 !important">
+    <section class="section section-hero bg-secondary page-header" style="padding: 100px 0; background: #ea9a96 !important; margin-bottom: 70px">
         <div class="container text-center">
             <h1 class="text-white display-3"><?php the_title(); ?></h1>
             <h2 class="display-5 font-weight-normal text-white"><?php the_field('state'); ?></h2>
@@ -29,11 +29,16 @@
                 </div>
                 <div class="col">
                     <div class="header-image text-center">
-                        <a href="#" class="pet">
-                            <img class="rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ3BrcF1XVZu6CAp48xHgD9In7ACBtDeZrGpND21TCGC1a-fVVX&usqp=CAU">
+                        <a href="<?php the_permalink(); ?>" class="pet">
+                            <?php
+                            if ( has_post_thumbnail() ) :
+                                the_post_thumbnail('thumbnail', array('class' => 'rounded-circle', 'title' => get_the_title()));
+                            else : ?>
+                            <img class="rounded-circle" src="<?php echo get_template_directory_uri(); ?>/assets/img/cat.png" style="background: #ea9a96;">
+                            <?php endif; ?>
                         </a>
                         <a href="#" class="owner">
-                            <img class="rounded-circle" src="https://demos.creative-tim.com/argon-design-system/assets/img/faces/team-4.jpg">
+                            <?php echo get_avatar( get_the_author_meta( 'ID' ), 90, '', get_the_author_meta('display_name'), array('class' => 'rounded-circle') ); ?>
                         </a>
                     </div>
                 </div>
@@ -108,6 +113,37 @@
             <div class="row justify-content-center">
                 <div class="col-lg-9">
                     <?php if (is_singular()): ?>
+
+                        <?php if( have_rows('gallery') ): ?>
+
+                            <div class="pet-gallery">
+                                <h5 class="text-white"><i class="fas fa-camera mr-2 mb-3"></i>Galeria de fotos</h5>
+                                <ul>
+
+                                    <?php while( have_rows('gallery') ): the_row();
+
+                                        $image = get_sub_field('gallery_item'); ?>
+
+                                        <li class="slide">
+                                            <a href="<?php echo $image['url']; ?>" data-fancybox="gallery">
+                                                <img src="<?php echo $image['sizes']['thumbnail']; ?>" alt="<?php echo $image['alt'] ?>" />
+                                            </a>
+                                        </li>
+
+                                    <?php endwhile; ?>
+
+                                </ul>
+                            </div>
+
+                        <?php endif; ?>
+
+                        <!--<a href="https://source.unsplash.com/lSXpV8bDeMA/1536x2304" data-fancybox="gallery" data-caption="Caption for single image">
+                            <img src="https://source.unsplash.com/lSXpV8bDeMA/1536x2304" alt="" />
+                        </a>
+                        <a href="https://source.unsplash.com/ty4X72BSsXY/1279x853" data-fancybox="gallery" data-caption="Caption for single image">
+                            <img src="https://source.unsplash.com/ty4X72BSsXY/1279x853" alt="" />
+                        </a>-->
+
                         <?php the_content(); ?>
                     <?php else: ?>
                         <?php the_excerpt(); ?>

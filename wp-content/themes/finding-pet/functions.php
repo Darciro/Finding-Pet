@@ -100,6 +100,8 @@ if ( ! function_exists( 'finding_pet_setup' ) ) :
 				'flex-height' => true,
 			)
 		);
+
+        // add_image_size('highlight-box', 350, 350, true);
 	}
 endif;
 add_action( 'after_setup_theme', 'finding_pet_setup' );
@@ -275,3 +277,10 @@ function finding_pet_get_distance($origin_lat, $origin_lng, $address_lat, $addre
         return $miles;
     }
 }
+
+function remove_admin_bar() {
+    // if (!current_user_can('administrator') && !is_admin()) {
+        show_admin_bar(false);
+    // }
+}
+add_action('after_setup_theme', 'remove_admin_bar');
